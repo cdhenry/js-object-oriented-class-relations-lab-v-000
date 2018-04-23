@@ -11,14 +11,14 @@ class Driver {
     store.drivers.push(this);
   }
 
-  passengers(){
-    return this.trips().map(trip => {
+  trips(){
+    return store.trips.filter(trip => {
       return trip.driverId === this.id;
     })
   }
 
-  trips(){
-    return store.trips.filter(trip => {
+  passengers(){
+    return this.trips().map(trip => {
       return trip.driverId === this.id;
     })
   }
