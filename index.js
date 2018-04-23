@@ -39,10 +39,8 @@ class Passenger{
   }
 
   drivers(){
-    return store.drivers.filter(driver => {
-      return driver.trips().filter(trip => {
-        return trip.passengerId === this.id;
-      })
+    return this.trips().map(trip => {
+      return trip.driver();
     })
   }
 }
